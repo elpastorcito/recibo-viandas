@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><title>Generar Recibo</title></head>
+<body>
+    <h2>Formulario de Vianda</h2>
+    <form method="POST">
+        <label>Nombre del cliente:</label><br>
+        <input type="text" name="cliente" required><br>
+        <label>Teléfono:</label><br>
+        <input type="text" name="telefono"><br>
+        <label>Tipo de vianda:</label><br>
+        <select name="tipo_vianda">
+            <option value="Simple">Simple</option>
+            <option value="Completa">Completa</option>
+            <option value="Dietética">Dietética</option>
+        </select><br>
+        <label>Precio:</label><br>
+        <input type="number" name="precio" step="0.01" required><br>
+        <label>Forma de pago:</label><br>
+        <input type="text" name="forma_pago" required><br>
+        <label>Fecha de pago:</label><br>
+        <input type="date" name="fecha_pago" required><br><br>
+        <button type="submit">Generar Recibo</button>
+    </form>
+    <br>
+    <a href="/logout">Cerrar sesión</a>
+</body>
+</html>

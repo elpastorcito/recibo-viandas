@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Historial de Recibos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 1rem;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .recibo {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .recibo strong {
+      display: inline-block;
+      width: 120px;
+    }
+    .boton-descarga {
+      display: inline-block;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+    }
+    .boton-salir {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+      color: #333;
+      text-decoration: none;
+    }
+    @media (max-width: 600px) {
+      .recibo strong {
+        width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Historial de Recibos</h2>
+
+  {% for r in recibos %}
+  <div class="recibo">
+    <div><strong>Cliente:</strong> {{ r.cliente }}</div>
+    <div><strong>Teléfono:</strong> {{ r.telefono }}</div>
+    <div><strong>Tipo:</strong> {{ r.tipo_vianda }}</div>
+    <div><strong>Precio:</strong> ${{ r.precio }}</div>
+    <div><strong>Pagado el:</strong> {{ r.fecha_pago.strftime('%d/%m/%Y') }}</div>
+    <div><strong>Finaliza el:</strong> {{ r.fecha_terminacion.strftime('%d/%m/%Y') }}</div>
+    <a class="boton-descarga" href="/descargar/{{ r.id }}">📄 Descargar PDF</a>
+  </div>
+  {% else %}
+  <p style="text-align:center;">No hay recibos cargados aún.</p>
+  {% endfor %}
+
+  <a class="boton-salir" href="/formulario">← Volver al formulario</a>
+  <a class="boton-salir" href="/logout">🔒 Cerrar sesión</a>
+</body>
+</html>

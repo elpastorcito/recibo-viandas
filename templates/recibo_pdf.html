@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; font-size: 12px; }
+        .header { font-size: 16px; font-weight: bold; text-align: center; }
+        .section { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="header">RECIBO DE PAGO – VIANDAS MENSUALES</div>
+    <div class="section">
+        <strong>Cliente:</strong> {{ recibo.cliente }}<br>
+        <strong>Teléfono:</strong> {{ recibo.telefono }}<br>
+        <strong>Tipo de Vianda:</strong> {{ recibo.tipo_vianda }}<br>
+        <strong>Precio:</strong> ${{ recibo.precio }}<br>
+        <strong>Forma de Pago:</strong> {{ recibo.forma_pago }}<br>
+        <strong>Fecha de Pago:</strong> {{ recibo.fecha_pago.strftime('%d/%m/%Y') }}<br>
+        <strong>Fecha de Terminación:</strong> {{ recibo.fecha_terminacion.strftime('%d/%m/%Y') }}<br>
+    </div>
+    <div class="section">
+        ¡Gracias por confiar en El Pastorcito Parripollo!
+    </div>
+</body>
+</html>
