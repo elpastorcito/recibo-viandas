@@ -15,7 +15,7 @@ git commit -m "Primera versión"
 git branch -M main
 
 REM CAMBIAR esta URL por la del repositorio real en GitHub
-git remote add origin https://github.com/elpastorcito/recibo_viandas.git
+git remote add origin https://github.com/elpastorcito/recibo-viandas.git
 
 echo Subiendo a GitHub...
 git push -u origin main
