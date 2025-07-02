@@ -1,1 +1,11 @@
-<h1>Bienvenido al sistema de viandas</h1>
+{% extends "base.html" %}
+{% block title %}Panel de Usuario{% endblock %}
+{% block content %}
+<div class="text-center">
+  <h2>Bienvenido, {{ user.username }}</h2>
+  <p>Esta es tu área personal.</p>
+  {% if user.is_admin %}
+    <a href="{{ url_for('admin_panel') }}" class="btn btn-warning">Ir al Panel de Administración</a>
+  {% endif %}
+</div>
+{% endblock %}
