@@ -30,6 +30,10 @@ class Recibo(db.Model):
     fecha_terminacion = db.Column(db.Date)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))
 
+@app.before_first_request
+def crear_tablas():
+    db.create_all()
+
 @app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
